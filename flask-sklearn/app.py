@@ -13,7 +13,7 @@ LOG.setLevel(logging.INFO)
 def scale(payload):
     """Scales Payload"""
 
-    LOG.info("Scaling Payload: {payload}")
+    LOG.info(f"Scaling Payload: {payload}")
     scaler = StandardScaler().fit(payload)
     scaled_adhoc_predict = scaler.transform(payload)
     return scaled_adhoc_predict
@@ -66,4 +66,4 @@ def predict():
 
 if __name__ == "__main__":
     clf = joblib.load("boston_housing_prediction.joblib")
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
